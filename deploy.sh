@@ -12,4 +12,5 @@ pip install pytz fastapi uvicorn apscheduler sqlalchemy pydantic python-dotenv r
 # Executar o serviço
 #uvicorn main:app --reload
 
-uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000} --reload
+uvicorn __main:app --host 0.0.0.0 --port ${PORT:-8000} --reload
+
