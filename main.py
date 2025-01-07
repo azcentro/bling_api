@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from bling_client import BlingClient
+import requests
 # teste
 app = FastAPI()
 
