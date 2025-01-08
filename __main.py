@@ -1,24 +1,13 @@
 from fastapi import FastAPI
-from app.scheduler import shutdown_scheduler
-from app.routes import manage_templates, list_templates, cancel_scheduled_message, list_scheduled_messages, check_user_status, webhook, send_template_message, logs, schedule_message, send_instant_message, update_token, current_token, expiration_time
+
+# Importação de rotas
+from app.routes.logs import *
+from app.routes.bling import *
 
 app = FastAPI(title="Chatbot WhatsApp Scheduler")
 
 # Incluindo rotas
-#app.include_router(manage_templates.router) # NÃO CONSEGUI VERIFICAR O FUNCIONAMENTO DESSE ENDPOINT
-#app.include_router(list_templates.router) # NÃO CONSEGUI VERIFICAR O FUNCIONAMENTO DESSE ENDPOINT
-app.include_router(cancel_scheduled_message.router)
-app.include_router(list_scheduled_messages.router)
-#app.include_router(check_user_status.router) # NÃO CONSEGUI VERIFICAR O FUNCIONAMENTO DESSE ENDPOINT
-app.include_router(current_token.router)
-app.include_router(expiration_time.router)
-app.include_router(logs.router)
-app.include_router(schedule_message.router)
-app.include_router(send_instant_message.router)
-app.include_router(send_template_message.router)
-app.include_router(update_token.router)
-app.include_router(webhook.router)
+app.include_router(logs_router)
 
-@app.on_event("shutdown")
-def shutdown():
-    shutdown_scheduler()
+app.include_router(search_products_router)
+

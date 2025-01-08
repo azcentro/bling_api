@@ -1,6 +1,6 @@
 # Teste Bot WhatsApp
 
-Bem-vindo ao projeto **Teste Bot WhatsApp**! Este repositório contém o código-fonte e a documentação para um bot integrado com a API do WhatsApp, desenvolvido usando Python e FastAPI. O objetivo é oferecer uma solução simples para envio e recebimento automático de mensagens no WhatsApp via Meta Developers API.
+Bem-vindo ao projeto **Integração com API Bling**! Este repositório contém o código-fonte e a documentação para integração com API do Bling, desenvolvido usando Python e FastAPI. O objetivo é oferecer uma solução simples para dados da minha conta Bling ERP para minhas aplicações.
 
 ## ✨ Sumário
 
@@ -18,16 +18,14 @@ Bem-vindo ao projeto **Teste Bot WhatsApp**! Este repositório contém o código
 
 ## 🔗 Links Úteis
 
-- [![Kanban do Projeto no Trello](https://img.shields.io/badge/Trello-Kanban-blue?logo=trello)](https://trello.com/b/PucBpboS/kanban-chatbot-whatsapp)
-- [![Configuração da API da Meta](https://img.shields.io/badge/Meta%20API-Configuração-blue?logo=meta)](https://developers.facebook.com/apps/559839246914426/whatsapp-business/wa-dev-console/?business_id=1154448022961294)
+- [![Kanban do Projeto no Trello]()
+- [![Configuração da API do Bling]()
 - [![Padrões de Commits](https://img.shields.io/badge/Commits-Padr%C3%B5es-orange?logo=git)](https://github.com/iuricode/padroes-de-commits)
 
 ## 🔄 TO-DO
 - [ ] Deploy automático no Digital Ocean
 - [ ] Documentação da API automática
 - [ ] Implementar logs para monitorar o desempenho e erros.
-- [ ] Criar uma interface web para visualização de mensagens.
-- [ ] Adicionar suporte a mensagens multimídia (imagens, áudios, etc.).
 - [ ] Melhorar a documentação com exemplos práticos de uso.
 
 ## 🔀 Comandos Git Flow
@@ -74,23 +72,27 @@ Esses comandos ajudam a organizar o desenvolvimento do projeto de forma estrutur
 
 
 ## 💡 Principais Recursos
-- Recebimento de mensagens enviadas ao número registrado no WhatsApp.
-- Resposta automática baseada no conteúdo recebido.
-- Envio de mensagens personalizadas para destinatários específicos.
-- Validação fácil de webhook para integração com a API da Meta.
+- 
 
 ## ⚙️ Tecnologias Utilizadas
 
 - **Linguagem**: Python 3.10+
 - **Framework**: FastAPI
 - **Gerenciador de Dependências**: Poetry
-- **API**: Meta Developers API para WhatsApp
+- **API**: Bling API V3
 - **Orquestração de Contêineres**: Docker Compose
 
 ## 📒 Estrutura do Projeto
 ```plaintext
 .
-├── main.py                # Arquivo principal da API
+C:.
+├───app
+│   ├───models
+│   ├───routes
+│   │   ├───bling
+│   │   ├───logs
+│   ├───services
+├── __main.py                # Arquivo principal da API
 ├── pyproject.toml         # Configuração do Poetry
 ├── poetry.lock            # Dependências travadas
 ├── requirements.txt       # Dependências para ambientes sem Poetry
@@ -104,16 +106,20 @@ Esses comandos ajudam a organizar o desenvolvimento do projeto de forma estrutur
 
 ### 1. Clonar o Repositório
 ```bash
-git clone https://github.com/joao-pedro-rdo/teste-bot-wpp.git
-cd teste-bot-wpp
+git clone ...
+cd ...
 ```
 
 ### 2. Configurar Variáveis de Ambiente
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
 ```env
-TOKEN_META=seu_token_de_acesso
-PHONE_NUMBER_ID=seu_id_do_numero_de_telefone
-VERIFY_TOKEN=seu_token_de_verificacao
+BLING_CLIENT_ID=client_id
+BLING_CLIENT_SECRET=client_secret
+BLING_TOKEN_URL=token_url
+BLING_BASE_URL=base_url
+BLING_ACCESS_TOKEN=access_token
+BLING_REFRESH_TOKEN=refresh_token
+
 ```
 
 ### 3. Instalar Dependências
@@ -129,7 +135,7 @@ pip install -r requirements.txt
 ### 4. Executar Localmente
 #### Com Uvicorn:
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000
+uvicorn __main:app --host 0.0.0.0 --port 8000
 ```
 
 ### 5. Executar com Docker
@@ -138,33 +144,21 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 docker-compose up --build
 ```
 
-### 6. Validar Webhook
-Durante a configuração no Meta Developers, insira a URL de validação como:
-```
-https://seu_dominio/webhook
-```
-Certifique-se de usar o token configurado em `VERIFY_TOKEN`.
-
 ## ⚡ Endpoints Disponíveis
 
-### POST `/webhook`
-Recebe mensagens do WhatsApp e responde automaticamente.
+### GET `/products/search`
+Faz busca geral de  produtos
 
-### GET `/webhook`
-Validação do webhook pela API da Meta.
-
-### POST `/webhooksend-message`
-Envia mensagens personalizadas. Parâmetros:
-- `to`: Destinatário
-- `message`: Mensagem a ser enviada
+### GET `/logs`
+Recebe os logs gerais da API
 
 
 ## 🛠️ Contribuições
 Contribuições são bem-vindas! Por favor, abra um PR ou uma issue para discussão.
 
 ## ✨ Autor
-- **João Pedro Rdo**  
-  E-mail: [joaoprdo2.aluno@unipampa.edu.br](mailto:joaoprdo2.aluno@unipampa.edu.br)
+- **André Luiz Montanha**  
+  E-mail: [alm28062001@gmail.com](mailto:alm28062001@gmail.com)
 
 ## 🌐 Licença
 Este projeto está licenciado sob a MIT License. Veja o arquivo `LICENSE` para mais detalhes.
