@@ -5,6 +5,9 @@ from app.config import BLING_TOKEN_URL, BLING_CLIENT_ID, BLING_CLIENT_SECRET, BL
 
 router = APIRouter()
 
+@router.get("/token/refresh", status_code=200, tags=["Bling"],
+    summary="Novo token de acesso",
+    description="Retorna novo token de acesso.")
 def refresh_access_token():
     try:
         payload = {
