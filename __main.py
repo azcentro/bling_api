@@ -2,7 +2,8 @@ from fastapi import FastAPI
 
 # Importação de rotas
 from app.routes.logs import *
-from app.routes.bling import *
+from app.routes.bling.products import *
+from app.routes.bling.sales_orders import *
 
 app = FastAPI(title="Integração com Bling API", version="3.0.0")
 
@@ -10,4 +11,5 @@ app = FastAPI(title="Integração com Bling API", version="3.0.0")
 app.include_router(logs_router)
 
 app.include_router(search_products_router)
+app.include_router(search_sales_orders_router)
 

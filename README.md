@@ -88,10 +88,19 @@ Esses comandos ajudam a organizar o desenvolvimento do projeto de forma estrutur
 C:.
 ├───app
 │   ├───models
+│   │   ├───__init__.py
 │   ├───routes
 │   │   ├───bling
+│   │   │   ├───__init__.py
+│   │   │   ├───search_products.py
 │   │   ├───logs
+│   │   │   ├───__init__.py
+│   │   │   ├───logs.py
+│   │   ├───__init__.py
 │   ├───services
+│   │   ├───__init__.py
+│   │   ├───bling_client.py
+│   ├───__init__.py
 ├── __main.py                # Arquivo principal da API
 ├── pyproject.toml         # Configuração do Poetry
 ├── poetry.lock            # Dependências travadas
