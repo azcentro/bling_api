@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from app.routes.logs import *
 from app.routes.bling import *
 
-app = FastAPI(title="Chatbot WhatsApp Scheduler")
+app = FastAPI(title="Integração com Bling API", version="3.0.0")
 
 # Incluindo rotas
 app.include_router(logs_router)
