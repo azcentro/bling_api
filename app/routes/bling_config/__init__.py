@@ -6,7 +6,9 @@
 # * (com ponto inicial) para que o Python saiba que estamos importando de um módulo dentro do mesmo pacote.
 
 from .refresh_access_token import router as refresh_access_token_router
+from .auth_token import router as auth_token_router
 
 __all__ = [
     "refresh_access_token_router",
+    "auth_token_router",
 ]

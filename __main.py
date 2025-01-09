@@ -15,3 +15,4 @@ app.include_router(search_products_router)
 app.include_router(search_sales_orders_router)
 
 app.include_router(refresh_access_token_router)
+app.include_router(auth_token_router)
