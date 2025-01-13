@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import pytz
 import logging
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Configurações de Banco e API
 BLING_CLIENT_ID = os.getenv("BLING_CLIENT_ID")
